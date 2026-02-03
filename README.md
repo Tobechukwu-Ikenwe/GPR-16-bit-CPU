@@ -22,24 +22,25 @@ When you run the emulator:
 
 ## Instruction Set (16-bit encoding)
 
-| Opcode | Mnemonic | Encoding | Description |
-|--------|----------|----------|-------------|
-| 0 | HALT | - | Stop execution |
-| 1 | MOVI Rd, imm9 | Rd, 9-bit imm | Rd = immediate (0–511) |
-| 2 | MOV Rd, Rs | Rd, Rs | Rd = Rs |
-| 3 | LOAD Rd, (Rs) | Rd, Rs | Rd = memory[Rs] |
-| 4 | STORE Rd, (Rs) | Rd, Rs | memory[Rs] = Rd |
-| 5 | ADD Rd, Rs | Rd, Rs | Rd = Rd + Rs |
-| 6 | SUB Rd, Rs | Rd, Rs | Rd = Rd - Rs |
-| 7 | AND Rd, Rs | Rd, Rs | Rd = Rd & Rs |
-| 8 | OR Rd, Rs | Rd, Rs | Rd = Rd \| Rs |
-| 9 | XOR Rd, Rs | Rd, Rs | Rd = Rd ^ Rs |
-| 10 | NOT Rd, Rs | Rd, Rs | Rd = ~Rs |
-| 11 | SHL Rd | Rd, Rs | Rd = Rd << 1 |
-| 12 | SHR Rd | Rd, Rs | Rd = Rd >> 1 (logical) |
-| 13 | JMP Rs | Rs | PC = Rs |
-| 14 | JZ Rs | Rs | If Zero flag: PC = Rs |
-| 15 | NOP | - | No operation |
+| #  | Instruction    | What It Does                   | Notes                  |
+| -- | -------------- | ------------------------------ | ---------------------- |
+| 0  | HALT           | Stop the CPU                   | Execution ends         |
+| 1  | MOVI Rd, imm   | Put an immediate value into Rd | imm = 0–511            |
+| 2  | MOV Rd, Rs     | Copy Rs into Rd                | Rd = Rs                |
+| 3  | LOAD Rd, (Rs)  | Load value from memory into Rd | Rd = memory[Rs]        |
+| 4  | STORE Rd, (Rs) | Store Rd into memory           | memory[Rs] = Rd        |
+| 5  | ADD Rd, Rs     | Add Rs to Rd                   | Rd = Rd + Rs           |
+| 6  | SUB Rd, Rs     | Subtract Rs from Rd            | Rd = Rd - Rs           |
+| 7  | AND Rd, Rs     | Bitwise AND                    | Rd = Rd & Rs           |
+| 8  | OR Rd, Rs      | Bitwise OR                     | Rd = Rd | Rs           |
+| 9  | XOR Rd, Rs     | Bitwise XOR                    | Rd = Rd ^ Rs           |
+| 10 | NOT Rd         | Bitwise NOT of Rd              | Rd = ~Rd               |
+| 11 | SHL Rd         | Shift Rd left by 1             | Rd = Rd << 1           |
+| 12 | SHR Rd         | Shift Rd right by 1            | Logical shift: Rd >> 1 |
+| 13 | JMP Rs         | Jump to address in Rs          | PC = Rs                |
+| 14 | JZ Rs          | Jump if zero flag set          | PC = Rs if zero        |
+| 15 | NOP            | Do nothing                     | No effect              |
+
 
 **Instruction format:** `[15:12]` opcode, `[11:9]` Rd, `[8:6]` Rs, `[5:0]` unused (or imm low bits for MOVI: `[8:0]` = 9-bit immediate).
 
