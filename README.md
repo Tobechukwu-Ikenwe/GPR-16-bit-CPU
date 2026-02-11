@@ -95,7 +95,7 @@ This lets you follow exactly how each instruction changes state.
 - `addition.asm` – Add program (A + B → 0x102).
 - `subtraction.asm` – Subtract program (A - B → 0x102).
 
-## Bitwise Decoding (for beginners)
+## Bitwise Decoding
 
 Instructions are decoded with shifts and masks:
 
