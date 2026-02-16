@@ -66,7 +66,7 @@ Programs are written in `.asm` files. Supported syntax:
 ## Run
 
 ```text
-./gpr_emulator [program.asm]
+./gpr_emulator addition.asm
 ```
 
 **Example programs:**
